@@ -12,19 +12,23 @@ export default new Router({
     {
       path: '/',
       component: Home,
+      name: 'home',
       children: [
         {
           path: 'form',
+          name: 'form',
           component: Form
         },
         {
           path: 'table',
+          name: 'table',
           component: Table
         }
       ]
     },
     {
       path: '*',
+      hidden: true,
       redirect: '/form'
     }
   ]
