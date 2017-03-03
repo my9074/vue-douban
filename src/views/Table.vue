@@ -1,5 +1,19 @@
 <template>
-  <div class="table-box">
+  <section>
+    <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
+      <el-form :inline="true">
+        <el-form-item>
+          <el-input placeholder="姓名"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary">查询</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary">新增</el-button>
+        </el-form-item>
+      </el-form>
+    </el-col>
+
     <el-table
       :data="tableData"
       style="width: 100%">
@@ -18,7 +32,7 @@
         label="地址">
       </el-table-column>
     </el-table>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -50,9 +64,6 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .table-box {
-    width: auto;
-    margin: 20px;
-  }
+<style scoped rel="stylesheet/less">
+
 </style>

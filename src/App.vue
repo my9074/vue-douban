@@ -10,11 +10,47 @@
   }
 </script>
 
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+<style lang="scss" rel="stylesheet/scss">
+  body {
+    margin: 0px;
+    padding: 0px;
+    /*background: url(assets/bg1.jpg) center !important;
+        background-size: cover;*/
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
   }
+
+  #app {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  .el-submenu [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+  }
+
+  .el-menu-item [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+  }
+
+  .toolbar {
+    background: #fff;
+    padding: 10px;
+
+    .el-form-item {
+      margin-bottom: 10px;
+    }
+  }
+
+  .form-box {
+    margin: 20px;
+    width: 60%;
+    min-width: 600px;
+  }
+
 </style>
