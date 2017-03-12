@@ -36,6 +36,7 @@
     },
     methods: {
       submit (formName) {
+        this.$router.push({name: 'table'})
       },
       resetForm (formName) {
         this.$refs[formName].resetFields()
