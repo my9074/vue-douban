@@ -80,3 +80,8 @@ dev: {
 ```
 在`proxyTable`这个属性中，配置target属性为我们要代理的目标地址。设置为`http://api.douban.com/v2`，这样我们就可以在应用中调用`/api/movie/in_theaters`来访问`http://api.douban.com/v2/movie/in_theaters`，从而解决跨域的问题。
 >关于vue-cli更多关于跨域的设置可以看[官网文档](http://vuejs-templates.github.io/webpack/)
+
+## RoadMap
+* 实现搜索 API
+* 添加 ajax loading
+* 添加分页或滚动更新
