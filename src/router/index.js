@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Form from 'views/Form'
 import Home from 'views/Home'
-import Table from 'views/Table'
+import MovieHotList from 'views/movie/HotList'
+import MovieComingList from 'views/movie/ComingList'
+import MovieDetail from 'views/movie/MovieDetail'
 
 Vue.use(Router)
 
@@ -12,24 +13,47 @@ export default new Router({
     {
       path: '/',
       component: Home,
-      name: 'home',
+      redirect: { name: '热映' },
+      name: '电影',
       children: [
         {
-          path: 'form',
-          name: 'form',
-          component: Form
+          path: '/movie/hot-list',
+          name: '热映',
+          component: MovieHotList
         },
         {
-          path: 'table',
-          name: 'table',
-          component: Table
+          path: '/movie/subject/:id',
+          name: '详情',
+          hidden: true,
+          component: MovieDetail
+        },
+        {
+          path: '/movie/coming-list',
+          name: '即将',
+          component: MovieComingList
+        }
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      redirect: { name: 'other1' },
+      name: 'other',
+      children: [
+        {
+          path: '/other/other1',
+          name: 'other1'
+        },
+        {
+          path: '/other/other2',
+          name: 'other2'
         }
       ]
     },
     {
       path: '*',
       hidden: true,
-      redirect: '/form'
+      redirect: '/movie/hot-list'
     }
   ]
 })
