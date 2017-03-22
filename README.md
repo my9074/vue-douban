@@ -50,3 +50,33 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
         └── MovieDetail.vue
 
 ```
+## 豆瓣API
+电影 API:
+* `/v2/movie/search?q={text}` 电影搜索api；(暂未实现)
+* `/v2/movie/in_theaters` 正在上映的电影；
+* `/v2/movie/coming_soon` 即将上映的电影；
+* `/v2/movie/subject/:id` 单个电影条目信息。
+
+>更多关于豆瓣的api可以前往[豆瓣api官网](https://developers.douban.com/wiki/?title=guide)查看。
+
+豆瓣 API 跨域配置:
+在`/config/index.js`中配置代理：
+```javascript
+dev: {
+  env: require('./dev.env'),
+  port: 8880,
+  assetsSubDirectory: 'static',
+  assetsPublicPath: '/',
+  proxyTable: {
+    '/api': {
+      target: 'http://api.douban.com/v2',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      }
+    }
+  }
+}
+```
+在`proxyTable`这个属性中，配置target属性为我们要代理的目标地址。设置为`http://api.douban.com/v2`，这样我们就可以在应用中调用`/api/movie/in_theaters`来访问`http://api.douban.com/v2/movie/in_theaters`，从而解决跨域的问题。
+>关于vue-cli更多关于跨域的设置可以看[官网文档](http://vuejs-templates.github.io/webpack/)
