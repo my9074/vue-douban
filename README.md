@@ -1,6 +1,6 @@
 # vue-seed
 
-> A Vue.js project
+> 基于 vue2, vue-router, vuex, axios及 豆瓣 API 和 Element UI 框架 的项目 
 
 ## Build Setup
 
@@ -21,4 +21,32 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## Demo
-![demo](https://j.gifs.com/wjvgMz.gif)
+
+![demo](https://j.gifs.com/WnRkqv.gif)
+
+## 项目结构
+```javascript
+.
+├── App.vue
+├── assets
+│   └── logo.png
+├── components
+├── main.js
+├── router
+│   └── index.js
+├── store
+│   ├── base.js
+│   ├── movies
+│   │   ├── api.js
+│   │   ├── module.js
+│   │   └── type.js
+│   └── store.js
+└── views
+    ├── Home.vue
+    ├── NavMenu.vue
+    └── movie
+        ├── ComingList.vue
+        ├── HotList.vue
+        └── MovieDetail.vue
+
+```
