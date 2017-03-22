@@ -14,7 +14,9 @@
               text-color="#ff9900"
               text-template="{value}">
             </el-rate>
-            <el-button type="text" class="button">查看详情</el-button>
+            <el-button type="text" class="button">
+              <router-link :to="{ path: `/movie/subject/${subject.id}`}" tag="span">查看详情</router-link>
+            </el-button>
           </div>
         </div>
       </el-card>

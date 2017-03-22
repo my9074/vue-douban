@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from 'views/Home'
 import MovieHotList from 'views/movie/HotList'
 import MovieComingList from 'views/movie/ComingList'
+import MovieDetail from 'views/movie/MovieDetail'
 
 Vue.use(Router)
 
@@ -19,6 +20,12 @@ export default new Router({
           path: '/movie/hot-list',
           name: '热映',
           component: MovieHotList
+        },
+        {
+          path: '/movie/subject/:id',
+          name: '详情',
+          hidden: true,
+          component: MovieDetail
         },
         {
           path: '/movie/coming-list',

@@ -11,3 +11,7 @@ export const MOVIESTYPE = {
 export function fetchMovies (type, {city = '北京', start = 0} = {}) {
   return fetch(`movie/${type}`, {city, start})
 }
+
+export function fetchMovieSubject (id) {
+  return fetch(`movie/subject/${id}`)
+}

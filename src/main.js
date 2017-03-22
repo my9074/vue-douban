@@ -9,6 +9,8 @@ import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(ElementUI)
 
+Vue.filter('arr2string', value => value.join(' / '))
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
