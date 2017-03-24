@@ -27,7 +27,7 @@
 <script>
   import {mapState} from 'vuex'
   import * as type from './../../store/movies/type'
-  import * as api from './../../store/movies/api'
+  import * as api from '../../api/movie'
 
   export default {
     name: 'hotList',
