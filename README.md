@@ -26,8 +26,10 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ## 项目结构
 ```javascript
-.
 ├── App.vue
+├── api
+│   ├── base.js
+│   └── movie.js
 ├── assets
 │   └── logo.png
 ├── components
@@ -35,12 +37,10 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ├── router
 │   └── index.js
 ├── store
-│   ├── base.js
-│   ├── movies
-│   │   ├── api.js
-│   │   ├── module.js
-│   │   └── type.js
-│   └── store.js
+│   ├── index.js
+│   └── movies
+│       ├── module.js
+│       └── type.js
 └── views
     ├── Home.vue
     ├── NavMenu.vue

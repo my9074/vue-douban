@@ -2,7 +2,7 @@
  * Created by my9074 on 2017/3/21.
  */
 import * as type from './type'
-import * as api from './api'
+import * as api from '../../api/movie'
 
 const mutations = {
   [type.FETCH_MOVIES] (state, payload) {

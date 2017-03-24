@@ -1,7 +1,7 @@
 /**
  * Created by my9074 on 2017/3/21.
  */
-import fetch from './../base'
+import fetch from './base'
 
 export const MOVIESTYPE = {
   inTheaters: 'in_theaters',
