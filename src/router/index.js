@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from 'views/Home'
-import MovieHotList from 'views/movie/HotList'
-import MovieComingList from 'views/movie/ComingList'
+import MovieList from 'views/movie/MovieList'
 import MovieDetail from 'views/movie/MovieDetail'
+
+import * as api from './../api/movie'
 
 Vue.use(Router)
 
@@ -19,18 +20,24 @@ export default new Router({
         {
           path: '/movie/hot-list',
           name: '热映',
-          component: MovieHotList
+          component: MovieList,
+          meta: {
+            type: api.MOVIESTYPE.inTheaters
+          }
+        },
+        {
+          path: '/movie/coming-list',
+          name: '即将',
+          component: MovieList,
+          meta: {
+            type: api.MOVIESTYPE.comingSoon
+          }
         },
         {
           path: '/movie/subject/:id',
           name: '详情',
           hidden: true,
           component: MovieDetail
-        },
-        {
-          path: '/movie/coming-list',
-          name: '即将',
-          component: MovieComingList
         }
       ]
     },

@@ -45,9 +45,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
     ├── Home.vue
     ├── NavMenu.vue
     └── movie
-        ├── ComingList.vue
-        ├── HotList.vue
-        └── MovieDetail.vue
+        ├── MovieDetail.vue
+        └── MovieList.vue
 
 ```
 ## 豆瓣API
