@@ -27,26 +27,30 @@
 <script>
   import {mapState} from 'vuex'
   import * as type from './../../store/movies/type'
-  import * as api from '../../api/movie'
 
   export default {
-    name: 'hotList',
+    name: 'movieList',
     data () {
       return {}
     },
     computed: {
       ...mapState({
         subjects (state) {
-          return state.movie.movies[api.MOVIESTYPE.inTheaters].subjects
+          return state.movie.movies[this.$route.meta.type].subjects
         }
       })
+    },
+    watch: {
+      $route (to) {
+        this.fetchData()
+      }
     },
     mounted () {
       this.fetchData()
     },
     methods: {
       fetchData () {
-        this.$store.dispatch(type.FETCH_MOVIES, {type: api.MOVIESTYPE.inTheaters})
+        this.$store.dispatch(type.FETCH_MOVIES, {type: this.$route.meta.type})
       }
     }
   }
