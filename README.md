@@ -84,3 +84,4 @@ dev: {
 * [ ] 实现搜索 API
 * [x] 添加 ajax loading
 * [x] 添加分页或滚动更新
+* [x] 添加 Notification
