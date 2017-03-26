@@ -81,6 +81,6 @@ dev: {
 >关于vue-cli更多关于跨域的设置可以看[官网文档](http://vuejs-templates.github.io/webpack/)
 
 ## RoadMap
-* 实现搜索 API
-* 添加 ajax loading
-* 添加分页或滚动更新
+* [ ] 实现搜索 API
+* [x] 添加 ajax loading
+* [x] 添加分页或滚动更新
