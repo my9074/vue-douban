@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="8" v-for="(subject, index) in subjects" :offset="2">
+    <el-col :span="8" v-for="(subject, index) in subjects" :offset="3">
       <el-card :body-style="{ padding: '0px' }">
         <img :src="subject.images.large" alt="默认" class="image">
         <div style="padding: 14px;">
@@ -31,12 +31,14 @@
   export default {
     name: 'movieList',
     data () {
-      return {}
+      return {
+        type: this.$route.meta.type
+      }
     },
     computed: {
       ...mapState({
         subjects (state) {
-          return state.movie.movies[this.$route.meta.type].subjects
+          return state.movie.movies[this.type].subjects
         }
       })
     },
@@ -50,7 +52,7 @@
     },
     methods: {
       fetchData () {
-        this.$store.dispatch(type.FETCH_MOVIES, {type: this.$route.meta.type})
+        this.$store.dispatch(type.FETCH_MOVIES, {type: this.type})
       }
     }
   }
@@ -70,6 +72,7 @@
 
   .image {
     width: 100%;
+    height:450px;
     display: block;
   }
 
@@ -81,5 +84,10 @@
 
   .clearfix:after {
     clear: both
+  }
+
+  .el-col {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 </style>
