@@ -21,29 +21,34 @@
         </div>
       </el-card>
     </el-col>
+    <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
+    <span slot="no-more">
+      There is no more Movies :(
+    </span>
+    </infinite-loading>
   </el-row>
 </template>
 
 <script>
   import {mapState} from 'vuex'
   import * as type from './../../store/movies/type'
+  import InfiniteLoading from 'vue-infinite-loading'
 
   export default {
     name: 'movieList',
     data () {
-      return {
-        type: this.$route.meta.type
-      }
+      return {}
     },
     computed: {
       ...mapState({
         subjects (state) {
-          return state.movie.movies[this.type].subjects
+          return state.movie.movies[this.$route.meta.type].subjects
         }
       })
     },
     watch: {
       $route (to) {
+        this.clearMovies()
         this.fetchData()
       }
     },
@@ -51,9 +56,27 @@
       this.fetchData()
     },
     methods: {
-      fetchData () {
-        this.$store.dispatch(type.FETCH_MOVIES, {type: this.type})
+      fetchData (start) {
+        this.$store.dispatch(type.FETCH_MOVIES, {type: this.$route.meta.type, start: start})
+          .then(data => {
+            if (!data.subjects.length) {
+              this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete')
+            } else {
+              this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
+            }
+          })
+      },
+      onInfinite () {
+        if (this.subjects.length) {
+          this.fetchData(this.subjects.length)
+        }
+      },
+      clearMovies () {
+        this.$store.dispatch(type.CLEAR_MOVIES, {type: this.$route.meta.type})
       }
+    },
+    components: {
+      InfiniteLoading
     }
   }
 </script>
@@ -72,7 +95,7 @@
 
   .image {
     width: 100%;
-    height:450px;
+    height: 450px;
     display: block;
   }
 
