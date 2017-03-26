@@ -6,19 +6,30 @@ import * as api from '../../api/movie'
 
 const mutations = {
   [type.FETCH_MOVIES] (state, payload) {
-    state.movies[payload.type].subjects = payload.subjects
-    state.movies[payload.type].total = payload.subjects.total
+    state.movies[payload.type].subjects = [...state.movies[payload.type].subjects, ...payload.subjects]
+    state.movies[payload.type].total = state.movies[payload.type].subjects.length
+  },
+  [type.CLEAR_MOVIES] (state, payload) {
+    state.movies[payload.type].subjects = []
+    state.movies[payload.type].total = 0
   }
 }
 
 const actions = {
   [type.FETCH_MOVIES] (context, payload) {
-    api.fetchMovies(payload.type, {start: payload.start || 0})
-      .then(data => context.commit(type.FETCH_MOVIES, {
-        type: payload.type,
-        subjects: data.subjects,
-        total: data.total
-      }))
+    return api.fetchMovies(payload.type, {start: payload.start || 0})
+      .then(data => {
+        context.commit(type.FETCH_MOVIES, {
+          type: payload.type,
+          subjects: data.subjects,
+          total: data.total
+        })
+
+        return data
+      })
+  },
+  [type.CLEAR_MOVIES] (context, payload) {
+    context.commit(type.CLEAR_MOVIES, payload)
   }
 }
 

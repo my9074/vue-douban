@@ -22,7 +22,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ## Demo
 
-![demo](https://j.gifs.com/g592g3.gif)
+![demo](https://j.gifs.com/qjkk8r.gif)
 
 ## 项目结构
 ```javascript
