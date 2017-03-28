@@ -25,11 +25,11 @@
     <div class="author">
       <p class="author-type">导演</p>
       <el-row>
-        <el-col :span="3" v-for="subject in movie.directors" :offset="2">
+        <el-col :span="3" v-for="director in movie.directors" :offset="2" :key="director.id">
           <el-card :body-style="{ padding: '0px' }">
-            <img :src="subject.avatars && subject.avatars.medium || ''" class="image">
+            <img :src="director.avatars && director.avatars.medium || ''" class="image">
             <div style="padding: 14px;">
-              <span>{{subject.name}}</span>
+              <span>{{director.name}}</span>
             </div>
           </el-card>
         </el-col>
@@ -38,11 +38,11 @@
     <div class="author">
       <p class="author-type">主演</p>
       <el-row>
-        <el-col :span="3" v-for="subject in movie.casts" :offset="2">
+        <el-col :span="3" v-for="cast in movie.casts" :offset="2" :key="cast.id">
           <el-card :body-style="{ padding: '0px' }">
-            <img :src="subject.avatars && subject.avatars.medium || ''" class="image">
+            <img :src="cast.avatars && cast.avatars.medium || ''" class="image">
             <div style="padding: 14px;">
-              <span>{{subject.name}}</span>
+              <span>{{cast.name}}</span>
             </div>
           </el-card>
         </el-col>
