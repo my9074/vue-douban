@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="8" v-for="(subject, index) in subjects" :offset="3">
+    <el-col :span="8" v-for="(subject, index) in subjects" :offset="3" :key="subject.id">
       <el-card :body-style="{ padding: '0px' }">
         <img :src="subject.images.large" alt="默认" class="image">
         <div style="padding: 14px;">
