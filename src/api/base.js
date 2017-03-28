@@ -2,7 +2,7 @@
  * Created by my9074 on 2017/3/21.
  */
 import axios from 'axios'
-import {Message} from 'element-ui'
+import { Notification } from 'element-ui'
 
 const HOST = '/api/'
 
@@ -12,7 +12,7 @@ export default function (url, params = {}) {
       .then((res) => {
         resolve(res.data)
       }).catch(err => {
-        Message.error('ajax error')
+        Notification.error('fetch error')
         reject(err)
       })
   })
