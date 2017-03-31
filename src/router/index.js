@@ -8,13 +8,13 @@ import * as api from './../api/movie'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
       component: Home,
-      redirect: { name: '热映' },
+      redirect: {name: '热映'},
       name: '电影',
       children: [
         {
@@ -34,6 +34,14 @@ export default new Router({
           }
         },
         {
+          path: '/movie/top250',
+          name: 'Top 250',
+          component: MovieList,
+          meta: {
+            type: api.MOVIESTYPE.top250
+          }
+        },
+        {
           path: '/movie/subject/:id',
           name: '详情',
           hidden: true,
@@ -44,7 +52,7 @@ export default new Router({
     {
       path: '/',
       component: Home,
-      redirect: { name: 'other1' },
+      redirect: {name: 'other1'},
       name: 'other',
       children: [
         {
@@ -64,3 +72,10 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  // 可以在每次发生路由导航是最开始先检测用户是否登录
+  next()
+})
+
+export default router
