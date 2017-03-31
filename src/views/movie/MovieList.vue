@@ -47,6 +47,7 @@
       })
     },
     watch: {
+      // 当使用路由参数时，例如从 /user/foo 导航到 user/bar，原来的组件实例会被复用。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。
       $route (to) {
         this.clearMovies()
         this.fetchData()
@@ -57,7 +58,8 @@
     },
     methods: {
       fetchData (start) {
-        this.$store.dispatch(type.FETCH_MOVIES, {type: this.$route.meta.type, start: start})
+        let actionType = this.$route.meta.type === 'top250' ? type.FETCH_MOVIES_TOP250 : type.FETCH_MOVIES
+        this.$store.dispatch(actionType, {type: this.$route.meta.type, start: start})
           .then(data => {
             if (!data.subjects.length) {
               this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete')
