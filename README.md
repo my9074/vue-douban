@@ -1,6 +1,8 @@
 # vue-seed
+[![Build Status](https://travis-ci.org/my9074/vue-douban.svg?branch=master)](https://travis-ci.org/my9074/vue-douban)
 
-> 基于 vue2, vue-router, vuex, axios及 豆瓣 API 和 Element UI 框架 的项目 
+
+> 基于 vue2, vue-router, vuex, axios及 豆瓣 API 和 Element UI 框架 的项目
 
 ## Build Setup
 
