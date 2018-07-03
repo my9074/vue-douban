@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" prop-message="prop-message" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ import { detail as movieDetail, theaters as movieTheaters } from "@/api/movie"; 
 export default class Home extends Vue {
   async created() {
     const res = await movieDetail("26925317");
-    const res2 = await movieTheaters();
+    const res2 = await movieTheaters({ start: 1, count: 10 });
   }
 }
 </script>
